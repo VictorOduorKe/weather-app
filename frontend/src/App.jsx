@@ -2,6 +2,9 @@ import { useState } from 'react'
 import axios from 'axios'
 import WeatherCard from './components/WeatherCard.jsx'
 
+// Get API base URL from environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000'
+
 export default function App() {
   const [city, setCity] = useState('')
   const [loading, setLoading] = useState(false)
@@ -18,7 +21,7 @@ export default function App() {
     setLoading(true)
     setError('')
     try {
-      const res = await axios.get(`http://127.0.0.1:5000/weather`, {
+      const res = await axios.get(`${API_BASE_URL}/weather`, {
         params: { city: trimmed }
       })
       setWeather(res.data)
