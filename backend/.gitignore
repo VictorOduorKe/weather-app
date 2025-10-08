@@ -3,7 +3,7 @@ bin
 lib
 include
 share
-venv
+./venv
 pyvenv.cfg
 pip-selfcheck.json
 pip-wheel-metadata
